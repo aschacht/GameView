@@ -5,24 +5,21 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 import FlatLander.FlatLandFacebook;
 import FlatLander.FlatLander;
 import View.Observable;
 import View.Observer;
 import View.UpdateCycle;
 
-
 public class ViewableFlatLand extends BaseFlatLand implements Observable, UpdateCycle {
 
 	private int time;
 	private ArrayList<Observer> tim = new ArrayList<Observer>();
 
-	private Color flatLandColor = Color.white;
-	private Color voidColor = Color.black;
+	private Color flatLandColor = Color.BLACK;
+	private Color voidColor = Color.BLACK;
 
-	public ViewableFlatLand(int flatLandWidth, int flatLandHeight, boolean b
-			) {
+	public ViewableFlatLand(int flatLandWidth, int flatLandHeight, boolean b) {
 		super(Color.class, flatLandWidth, flatLandHeight, b);
 
 		setTime(0);
@@ -89,17 +86,18 @@ public class ViewableFlatLand extends BaseFlatLand implements Observable, Update
 	public void update() {
 
 		ArrayList<FlatLander> bookOfFlatLanders = FlatLandFacebook.getInstance().getFlatlanderFaceBook();
-		while(!FlatLandFacebook.getInstance().requestToken(this)) {}
-		
+		while (!FlatLandFacebook.getInstance().requestToken(this)) {
+		}
+
 		for (FlatLander flatLander : bookOfFlatLanders) {
-			
+
 			flatLander.setPreviousX(flatLander.getX());
 			flatLander.setPreviousY(flatLander.getY());
 
 		}
 		FlatLandFacebook.getInstance().releaseToken(this);
-		
-		while(!FlatLandFacebook.getInstance().requestToken(this)) {
+
+		while (!FlatLandFacebook.getInstance().requestToken(this)) {
 			System.out.println("hey");
 		}
 		for (FlatLander flatLander : bookOfFlatLanders) {
@@ -110,10 +108,6 @@ public class ViewableFlatLand extends BaseFlatLand implements Observable, Update
 		FlatLandFacebook.getInstance().releaseToken(this);
 		setTime(time + 1);
 	}
-
-	
-
-	
 
 	public int getTime() {
 		return time;
@@ -146,6 +140,7 @@ public class ViewableFlatLand extends BaseFlatLand implements Observable, Update
 
 	public void setFlatLandColor(Color flatLandColor) {
 		this.flatLandColor = flatLandColor;
+
 	}
 
 	public Color getVoidColor() {

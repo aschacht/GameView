@@ -28,8 +28,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import FlatLandStructure.ViewableFlatLand;
-import Math.GameDice;
-import testing.VariableRepository;
+//import Math.GameDice;
+import main.testing.VariableRepository;
 
 public class FlatLandWindow extends JFrame {
 
@@ -675,13 +675,13 @@ public class FlatLandWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 
-				if (!GameDice.getInstance().nextTurn()) {
-					System.out.println(GameDice.getInstance().roll());
-					GameDice.getInstance().setNextTurn(true);
-				} else {
-					GameDice.getInstance().setNextTurn(false);
-
-				}
+//				if (!GameDice.getInstance().nextTurn()) {
+//					System.out.println(GameDice.getInstance().roll());
+//					GameDice.getInstance().setNextTurn(true);
+//				} else {
+//					GameDice.getInstance().setNextTurn(false);
+//
+//				}
 
 			}
 		});

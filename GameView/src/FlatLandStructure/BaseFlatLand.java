@@ -1,5 +1,6 @@
 package FlatLandStructure;
 
+import java.awt.Color;
 import java.lang.reflect.Array;
 import FlatLander.FlatLander;
 
@@ -9,8 +10,8 @@ import FlatLander.FlatLander;
 
 public class BaseFlatLand<T> {
 
-	private int width;
-	private int height;
+	public int width;
+	public int height;
 	private Boolean isWraped;
 	private T[][] theFlatLandVector;
 	private Class<T> cls;
@@ -21,6 +22,8 @@ public class BaseFlatLand<T> {
 		this.height = flatLandHeight;
 		this.isWraped = isWraped;
 		this.theFlatLandVector = (T[][])Array.newInstance(cls, width, height);	
+		
+		
 		
 	}
 	
@@ -181,7 +184,7 @@ public class BaseFlatLand<T> {
 		
 		
 	}
-	
+
 	
 	
 	public T getFlatLandAt(int xpos,int ypos) {
